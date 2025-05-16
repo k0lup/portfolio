@@ -1,11 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Сайт-визитка для демонстрации базовых навыков верстки и небольшого рассказа о себе">
+    <title>Сайт уставшего студента</title>
+    <link href="css/outlines.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <a><img src="img/logo.svg" alt="логотип сайта"></a>
+        <nav>
+            <ul>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#interests">Интересы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Николай Давыдов</h1>
+            <p>Программист</p>
+            <img src="img/user-photo.jpg" alt="моя фотография">
+        </section>
+        
+        <article id="about">
+            <h2>Пара слов обо мне</h2>
+            <p>Привет ✌</p>
+            <p>В данный момент я учусь в магистратуре МФ МГТУ им. Н. Э. Баумана 
+            по направлению «Информатика и вычисли­тельная техника».</p>
+            <p>В прошлом году защитил диплом бакалавра на тему «Разработка очень сложного программного комплекса для супер-важной цели». Работа была высоко оценена комиссией.</p>
+            <p>Также я уже успел поработать инженером в одном провайдере в Пушкино, 
+            но в будущем планирую стать разработчиком сложных программных комплексов и систем.</p>
+        </article>
+
+        <section id="skills">
+            <h2>Мои навыки</h2>
+            <div>
+                Сортировать <button>по названию</button> <button>по уровню</button>
+            </div>
+            <dl>
+                <dt>html</dt>
+                <dd>
+                    <div style="width: 40%;">40%</div>
+                </dd>
+                <dt>css</dt>
+                <dd>
+                    <div style="width: 40%;">40%</div>
+                </dd>
+                <dt>python</dt>
+                <dd>
+                    <div style="width: 75%;">75%</div>
+                </dd>
+                <dt>c++</dt>
+                <dd>
+                    <div style="width: 85%;">85%</div>
+                </dd>
+            </dl>
+        </section>
+
+        <section id="interests">
+            <h2>Мои интересы</h2>
+            <p>Наибольший интерес для меня в данный момент представляет программирование и изучение искусственного интеллекта.</p>
+            <p>Но помимо учёбы и работы я также люблю играть на барабанах и читать зарубежную классику.</p>
+        </section>
+
+        <aside id="contacts">
+            <h2>Мои контакты</h2>
+            <ul>
+                <li><a href="tel:+79991234567">+7 999 123-45-67</a></li>
+                <li><a href="mailto:email@mail.ru">email@mail.ru</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://github.com/k0lup">github</a></li>
+                <li><a href="https://t.me/k0lup">telegram</a></li>
+                <li><a href="https://vk.com/bmtsumf">VK</a></li>
+            </ul>
+        </aside>
+
+    </main>
+    <footer>
+        <p>© 2023 Сергей Константинов</p>
+    </footer>
 </body>
 </html>
