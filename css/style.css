@@ -516,6 +516,10 @@ section, .main-header {
     .social {
         gap: 15px;
     }
+
+    .main-nav_closed {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 380px) {
@@ -560,4 +564,9 @@ section, .main-header {
         flex-direction: column;
         gap: 15px;
     }
+}    
+
+.main-header-wrap button:hover {
+    background-color: unset;
+    color: var(--bg-color);
 }

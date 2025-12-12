@@ -11,6 +11,7 @@
         <link href="./css/normalize.css" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="./img/main-logo.png">
+        <script defer src="js/script.js"></script>
     </head>
     <body>
         <div class="container">
@@ -34,7 +35,7 @@
                         <h1>Давыдов Николай</h1>
                         <p class="subtitle">Программист</p>
                     </div>
-                    <img src="img/user-photo.jpg" alt="моя фотография" width="400" height="400">
+                    <img src="./img/user-photo.jpg" alt="user-photo" width="400" height="400">
                 </section>
                 <section id="about" class="section-about">
                     <h2>Пара слов обо мне</h2>
@@ -48,29 +49,13 @@
                 <section id="skills" class="section-skills">
                     <div class="skills-head">
                         <h2>Мои навыки</h2>
-                        <div>
+                        <div class="skills-sort">
                             <p>Сортировать</p>
-                            <button>по названию</button>
-                            <button>по уровню</button>
+                            <button data-type="name">по названию</button>
+                            <button data-type="level">по уровню</button>
                         </div>
                     </div>
                     <dl class="skill-list">
-                        <dt class="skill-item skill-item_cpp">c++</dt>
-                        <dd class="skill-level">
-                            <div style="width: 80%;">80%</div>
-                        </dd>
-                        <dt class="skill-item skill-item_c">c</dt>
-                        <dd class="skill-level">
-                            <div style="width: 80%;">80%</div>
-                        </dd>
-                        <dt class="skill-item skill-item_html">html</dt>
-                        <dd class="skill-level">
-                            <div style="width: 50%;">50%</div>
-                        </dd>
-                        <dt class="skill-item skill-item_css">css</dt>
-                        <dd class="skill-level">
-                            <div style="width: 40%;">40%</div>
-                        </dd>
                     </dl>
                 </section>
                 <section id="interests" class="section-interests">
@@ -92,17 +77,27 @@
                     </ul>
                     <ul class="social">
                         <li>
-                            <a class="social-link social-link_gitlab" href="https://github.com/k0lup">
+                            <a class="social-link social-link_github" href=#>
+                                <span class="visually-hidden">GitHub</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-link social-link_gitlab" href=#>
                                 <span class="visually-hidden"> GitLab</span>
                             </a>
                         </li>
                         <li>
-                            <a class="social-link social-link_vk" href="https://vk.com/bmtsumf">
+                            <a class="social-link social-link_vk" href=#>
                                 <span class="visually-hidden">VK</span>
                             </a>
                         </li>
                         <li>
-                            <a class="social-link social-link_telegram" href="https://t.me/k0lup">
+                            <a class="social-link social-link_instagram" href=#>
+                                <span class="visually-hidden">Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-link social-link_telegram" href=#>
                                 <span class="visually-hidden">Telegram</span>
                             </a>
                         </li>
