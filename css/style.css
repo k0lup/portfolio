@@ -16,7 +16,6 @@ body {
     font-weight: 400;
     font-size: 20px;
     line-height: 1.5;
-
     color: var(--txt-color);
     background-color: var(--bg-color);
 }
@@ -128,6 +127,16 @@ button:hover {
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: 50%;
+    background-color: var(--bg-color);
+}
+
+.dark-theme {
+    --txt-color: #CCCCCC;
+    --bg-color: #031923;
+}
+
+.dark-theme .social-link {
+    background-color: #CCCCCC;
 }
 
 .social-link:hover{
@@ -135,23 +144,23 @@ button:hover {
 }
 
 .social-link_github{
-    background-image: url(../img/github.svg);
+    background-image: url(../img/contacts/github.svg);
 }
 
 .social-link_gitlab{
-    background-image: url(../img/gitlab.svg);
+    background-image: url(../img/contacts/gitlab.svg);
 }
 
 .social-link_vk{
-    background-image: url(../img/vk.svg);
+    background-image: url(../img/contacts/vk.svg);
 }
 
 .social-link_instagram{
-    background-image: url(../img/instagram.svg);
+    background-image: url(../img/contacts/instagram.svg);
 }
 
 .social-link_telegram{
-    background-image: url(../img/telegram.svg);
+    background-image: url(../img/contacts/telegram.svg);
 }
 
 .contact {
@@ -176,12 +185,20 @@ button:hover {
     color: var(--green);
 }
 
-.contact-link_phone{
-    background-image: url(../img/phone.svg);
+.contact-link_phone {
+    background-image: url(../img/contacts/phone.svg);
 }
 
-.contact-link_email{
-    background-image: url(../img/email.svg);
+.dark-theme .contact-link_phone {
+    background-image: url(../img/dark-theme/phone.svg);
+}
+
+.contact-link_email {
+    background-image: url(../img/contacts/email.svg);
+}
+
+.dark-theme .contact-link_email {
+    background-image: url(../img/dark-theme/email.svg);
 }
 
 ul{
@@ -569,4 +586,67 @@ section, .main-header {
 .main-header-wrap button:hover {
     background-color: unset;
     color: var(--bg-color);
+}
+
+.switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 34px;
+}
+
+.switch-checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: var(--green);
+    cursor: pointer;
+}
+
+.switch-checkbox:checked + .switch-slider {
+    background-color: #CCCCCC;
+}
+
+.switch-slider:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    bottom: 0;
+    height: 40px;
+    width: 40px;
+    margin: auto 0;
+    border: 1px solid #CCCCCC;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    background-image: url('../img/dark-theme/moon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    transition: 0.4s;
+}
+
+.switch-checkbox:checked + .switch-slider:before {
+    transform: translateX(24px);
+    background-color: #FFFFFF;
+    background-image: url('../img/dark-theme/sun.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    transition: 0.4s;
+}
+
+.on-transition {
+  transition: 0.4s;
 }
