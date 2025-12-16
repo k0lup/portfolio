@@ -51,34 +51,42 @@ function getComparer(prop) {
 
 const skills = {
     elem: null,
-    data: [ 
-        {name:"c++", level:80, image:"c++.svg"},
-        {name:"c", level:80,image:"c.svg"},
-        {name:"html", level:50, image:"html.svg"},
-        {name:"css", level:40, image:"css.svg"} 
-    ],
+    data: [],
     sortMode: null,
 
     init(selector) { this.elem = document.querySelector(selector); },
 
-    generateList() {
-        this.elem.innerHTML = "";
-        this.data.forEach((item) => {
-            const dt = document.createElement("dt");
-            dt.style.backgroundImage = `url("img/${item.image}")`;
-            dt.className = "skill-item";
-            dt.textContent = item.name;
-            this.elem.append(dt);
-
-            const div = document.createElement("div");
-            div.style.width = `${item.level}%`;
-            div.textContent = `${item.level}%`;
-
-            const dd = document.createElement("dd");
-            dd.className = "skill-level";
-            dd.append(div);
-            this.elem.append(dd);
+    getData(json_path) {
+        fetch(json_path)
+        .then(promise_obj => promise_obj.json())
+        .then(json_data => {
+            this.data = json_data;
+            this.generateList();
         })
+        .catch(() => console.error('что-то пошло не так'));
+    },
+
+    generateList() {
+        if (this.data.length !== 0) {
+            this.elem.parentNode.style = "";
+            this.elem.innerHTML = "";
+            this.data.forEach((item) => {
+                const dt = document.createElement("dt");
+                dt.style.backgroundImage = `url("img/${item.image}")`;
+                dt.className = "skill-item";
+                dt.textContent = item.name;
+                this.elem.append(dt);
+
+                const div = document.createElement("div");
+                div.style.width = `${item.level}%`;
+                div.textContent = `${item.level}%`;
+
+                const dd = document.createElement("dd");
+                dd.className = "skill-level";
+                dd.append(div);
+                this.elem.append(dd);
+            })
+        }
     },
 
     sortList(object_sort) {
@@ -92,7 +100,7 @@ const skills = {
 }
 
 skills.init("dl.skill-list");
-skills.generateList();
+skills.getData("db/skills.json");
 
 const skills_sort = document.querySelector("div.skills-sort");
 

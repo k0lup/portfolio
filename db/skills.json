@@ -1,0 +1,6 @@
+[ 
+    {"name":"c++", "level":80, "image":"c++.svg"},
+    {"name":"c", "level":80,"image":"c.svg"},
+    {"name":"html", "level":50, "image":"html.svg"},
+    {"name":"css", "level":40, "image":"css.svg"} 
+]
