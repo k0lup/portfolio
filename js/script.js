@@ -69,13 +69,26 @@ const skills = {
     generateList() {
         if (this.data.length !== 0) {
             this.elem.parentNode.style = "";
-            this.elem.innerHTML = "";
+            this.elem.innerHTML = `
+            <div class="skills-head">
+                <h2>Мои навыки</h2>
+                <div class="skills-sort">
+                    <p>Сортировать</p>
+                    <button data-type="name">по названию</button>
+                    <button data-type="level">по уровню</button>
+                </div>
+            </div>
+            <dl class="skill-list">
+            </dl>
+            `;
+            let child_elem = this.elem.children[1];
+            console.log(child_elem);
             this.data.forEach((item) => {
                 const dt = document.createElement("dt");
                 dt.style.backgroundImage = `url("img/${item.image}")`;
                 dt.className = "skill-item";
                 dt.textContent = item.name;
-                this.elem.append(dt);
+                child_elem.append(dt);
 
                 const div = document.createElement("div");
                 div.style.width = `${item.level}%`;
@@ -84,8 +97,30 @@ const skills = {
                 const dd = document.createElement("dd");
                 dd.className = "skill-level";
                 dd.append(div);
-                this.elem.append(dd);
+                child_elem.append(dd);
             })
+            const skills_sort = document.querySelector("div.skills-sort");
+            skills_sort.addEventListener('click', (e) => {
+                if (e.target.nodeName === 'BUTTON') {
+                    const type = e.target.dataset.type;
+                    console.log(1);
+                    switch (type) {
+                        case 'name':
+                            skills.sortList(type);
+                            skills.generateList(skills);
+                        break;
+
+                        case 'level':
+                            skills.sortList(type);
+                            skills.generateList(skills);
+                        break;
+
+                        default:
+                            console.log('not find button');
+                        break;
+                    }
+                }
+            });
         }
     },
 
@@ -99,28 +134,5 @@ const skills = {
     }
 }
 
-skills.init("dl.skill-list");
+skills.init("section.section-skills");
 skills.getData("db/skills.json");
-
-const skills_sort = document.querySelector("div.skills-sort");
-
-skills_sort.addEventListener('click', (e) => {
-    if (e.target.nodeName === 'BUTTON') {
-        const type = e.target.dataset.type;
-        switch (type) {
-            case 'name':
-                skills.sortList(type);
-                skills.generateList(skills);
-            break;
-
-            case 'level':
-                skills.sortList(type);
-                skills.generateList(skills);
-            break;
-
-            default:
-                console.log('not find button');
-            break;
-        }
-    }
-});

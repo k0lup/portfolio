@@ -8,29 +8,29 @@ function addTransitionAnimation(){
     document.querySelector("a.contact-link_email").classList.add('on-transition');
 }
 
-function saveStatusTheme(status){
+function saveThemeStatus(status){
     if(status === true){
-        localStorage.setItem('status_theme', 'light');
+        localStorage.setItem('theme_status', 'light');
     } else {
-        localStorage.setItem('status_theme', 'dark');
+        localStorage.setItem('theme_status', 'dark');
     }
 }
 
-function changeTheme(){
+function setTheme(){
     if(theme_switch.checked === true){
         tag_body.classList.remove('dark-theme');
     } else {
         tag_body.classList.add('dark-theme');
     }
-    saveStatusTheme(theme_switch.checked);
+    saveThemeStatus(theme_switch.checked);
 }
 
-if (localStorage.getItem('status_theme') === null){
-    localStorage.setItem('status_theme', 'light');
+if (localStorage.getItem('theme_status') === null){
+    localStorage.setItem('theme_status', 'light');
 }
 
-theme_switch.checked = localStorage.getItem('status_theme') === 'light';
-changeTheme();
+theme_switch.checked = localStorage.getItem('theme_status') === 'light';
+setTheme();
 
-theme_switch.addEventListener("click", changeTheme);
+theme_switch.addEventListener("click", setTheme);
 theme_switch.addEventListener("click", addTransitionAnimation, {once : true});
